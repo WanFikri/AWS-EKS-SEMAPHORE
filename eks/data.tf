@@ -29,7 +29,5 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-# Get the latest EKS-optimized Amazon Linux 2 AMI for worker nodes
-data "aws_ssm_parameter" "eks_ami" {
-  name = "/aws/service/eks/optimized-ami/${var.cluster_version}/amazon-linux-2/recommended/image_id"
-}
+# Note: AMI is managed automatically by EKS managed node groups
+# No need to look up AMI manually
